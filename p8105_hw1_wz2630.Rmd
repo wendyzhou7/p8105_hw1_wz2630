@@ -43,6 +43,7 @@ df <- data.frame(random_sample = rnorm(10),
                                  "six", "seven", "eight", "nine", "ten"),
                  vec_factor = factor(c("medium", "low", "low", "low", "low", "high", "high", "medium", "low", "high")))
 
-
+mean(df$random_sample)
+mean(df$vec_logical)
 ```
-
+We cannot take the mean of character variables. We can only take the mean of numerical value variables.
