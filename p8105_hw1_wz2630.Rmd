@@ -22,14 +22,26 @@ ncol(early_january_weather)
 mean(early_january_weather$temp)
 
 #scatterplot
-library(ggplot2)
-library(tidyverse)
 
-early_january_weather %>% 
-  ggplot(aes(x = time_hour, y = temp)) + 
-  geom_point(aes(col = humid)) + 
-  labs(y = "Temperature", x = "Time of day", title = "Temperature at different hours of the day in early January")
+ggplot(early_january_weather, aes(x = time_hour, y = temp)) + 
+geom_point(aes(col = humid)) + 
+labs(y = "Temperature", x = "Time", title = "Temperature at Different Times in Early January")
 
+ggsave("scatter_plot.pdf")
 ```
 In the early_january_weather, there are 358 observations and 15 variables. The mean of temp is 39.58.
-The names of the variables are: origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, time_hour.
+The names of the variables are: origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, time_hour. # missing data or outliers.
+
+The variable time_hour observations are in year, month, day, and hour; temp and humid variables are in continuous numbers.
+
+
+Problem 2
+```{r}
+df <- data.frame(rnorm(10),
+                 as.logical("F" when),
+                 this_vector <- c("one", "two", "three", "four", "five", 
+                                 "six", "seven", "eight", "nine", "ten"))
+
+
+```
+
