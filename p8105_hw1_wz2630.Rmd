@@ -11,7 +11,7 @@ library(moderndive)
 data("early_january_weather")
 
 # the variables in this dataset, including names / values of important variables
-str(early_january_weather)
+skimr::skim(early_january_weather)
 
 # the size of the dataset
 nrow(early_january_weather)
@@ -23,9 +23,13 @@ mean(early_january_weather$temp)
 
 #scatterplot
 library(ggplot2)
-scatterplot <- ggplot(data = early_january_weather, aes(x = time_hour, y = temp, col = humid)) + 
-  geom_point(na.rm = T) + 
+library(tidyverse)
+
+early_january_weather %>% 
+  ggplot(aes(x = time_hour, y = temp)) + 
+  geom_point(aes(col = humid)) + 
   labs(y = "Temperature", x = "Time of day", title = "Temperature at different hours of the day in early January")
 
 ```
 In the early_january_weather, there are 358 observations and 15 variables. The mean of temp is 39.58.
+The names of the variables are: origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, time_hour.
