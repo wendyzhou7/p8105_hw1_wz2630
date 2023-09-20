@@ -20,7 +20,7 @@ nrow(early_january_weather)
 ncol(early_january_weather)
 
 #the mean temperature
-temp <- early_january_weather$temp
+temp <- pull(early_january_weather, temp)
 mean(temp)
 
 #scatterplot
