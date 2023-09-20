@@ -49,11 +49,11 @@ df <- tibble(
                         "high", "high", "high","high"))
             )
 
-random_sample <- df$random_sample
-mean(random_sample)
+mean_random_sample <- pull(df, random_sample)
+mean(mean_random_sample)
 
-vec_logical <- df$vec_logical
-mean(vec_logical)
+mean_vec_logical <- pull(df, vec_logical)
+mean(mean_vec_logical)
 
 ```
 We cannot take the mean of character variables. We can only take the mean of numerical value variables.
