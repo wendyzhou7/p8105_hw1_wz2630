@@ -7,6 +7,7 @@ date: "2023-09-15"
 Problem 1
 ```{r}
 library(moderndive)
+library(tidyverse)
 
 data("early_january_weather")
 
@@ -19,7 +20,8 @@ nrow(early_january_weather)
 ncol(early_january_weather)
 
 #the mean temperature
-mean(early_january_weather$temp)
+temp <- early_january_weather$temp
+mean(temp)
 
 #scatterplot
 
@@ -29,21 +31,29 @@ labs(y = "Temperature", x = "Time", title = "Temperature at Different Times in E
 
 ggsave("scatter_plot.pdf")
 ```
-In the early_january_weather, there are 358 observations and 15 variables. The mean of temp is 39.58.
-The names of the variables are: origin, year, month, day, hour, temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, pressure, visib, time_hour. There are many missing data in variables wind_gust and pressure. # missing data or outliers.
+In the early_january_weather, there are 358 observations and 15 variables. 
 
+The mean temperature is 39.58.
+
+There are many missing data in variables wind_gust and pressure. # missing data or outliers.
 The variable time_hour observations are in year, month, day, and hour; temp and humid variables are in continuous numbers.
 
 
 Problem 2
 ```{r}
-df <- data.frame(random_sample = rnorm(10),
-                 vec_logical = random_sample > 0,
-                 vec_char = c("one", "two", "three", "four", "five", 
-                                 "six", "seven", "eight", "nine", "ten"),
-                 vec_factor = factor(c("medium", "low", "low", "low", "low", "high", "high", "medium", "low", "high")))
+df <- tibble(
+  random_sample = rnorm(10),
+  vec_logical = random_sample > 0,
+  vec_char = c("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"),
+  vec_factor = factor(c("low", "low", "low", "medium", "medium", "medium", 
+                        "high", "high", "high","high"))
+            )
 
-mean(df$random_sample)
-mean(df$vec_logical)
+random_sample <- df$random_sample
+mean(random_sample)
+
+vec_logical <- df$vec_logical
+mean(vec_logical)
+
 ```
 We cannot take the mean of character variables. We can only take the mean of numerical value variables.
