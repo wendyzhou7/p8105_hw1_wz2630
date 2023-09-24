@@ -81,6 +81,7 @@ factor_convert <- as.numeric(vec_factor)
 mean(factor_convert)
 # The as.numeric function is able to convert factor into numeric since it has levels that 
 # allows a numerical conversion. However, as.numeric function is not able to convert 
-# character values into numeric values.
+# character values into numeric values. Therefore, the mean cannot be taken for character vector; 
+# it can only be taken for logical vector (already numerical) and factor vectors.
 ```
 
